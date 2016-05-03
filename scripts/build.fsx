@@ -11,7 +11,10 @@ open Gitsemver
 let mutable version : SemVerHelper.SemVerInfo option = None
 
 Target "UpdateVersion" (fun _ ->  
-    let semver = getSemverDefault
+    let semver = 
+        getSemverInfoDefault 
+        |> appendPreReleaseBuildNumber 3 
+
     version <- Some semver
 )
 
