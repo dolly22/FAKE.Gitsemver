@@ -1,4 +1,6 @@
-﻿#I "scripts/packages/FAKE.Core/tools/"
+﻿#nowarn "211"
+#I "scripts/packages/FAKE.Core/tools/"
+#I "../../../packages/FAKE.Core/tools/"
 #r "FakeLib.dll"
 
 open Fake
