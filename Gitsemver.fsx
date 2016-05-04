@@ -26,7 +26,7 @@ let getSemverInfo repositoryDir semverFile =
     tracefn "Semver file prefix is: %s" versionPrefix.Value
     let semver = parse versionPrefix.Value    
 
-    let semverCreatedSha = runSimpleGitCommand repositoryDir <| sprintf "log -G\"%s\" --reverse --max-count=1 --format=format:%%H -- %s" semverFile versionPrefix.Value    
+    let semverCreatedSha = runSimpleGitCommand repositoryDir <| sprintf "log -G\"%s\" --reverse --max-count=1 --format=format:%%H -- %s" versionPrefix.Value semverFile
     let commitCountExpr = 
         match isNullOrEmpty semverCreatedSha with
             | false -> sprintf "%s..HEAD" semverCreatedSha
