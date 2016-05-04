@@ -31,7 +31,7 @@ let getSemverInfo repositoryDir semverFile =
         match isNullOrEmpty semverCreatedSha with
             | false -> sprintf "%s..HEAD" semverCreatedSha
             | true -> "HEAD"
-    let comitsSinceCreated = runSimpleGitCommand repositoryDir <| sprintf "rev-list --no-merges --count %s" commitCountExpr
+    let comitsSinceCreated = runSimpleGitCommand repositoryDir <| sprintf "rev-list --count %s" commitCountExpr
 
     (semver, comitsSinceCreated)
 
